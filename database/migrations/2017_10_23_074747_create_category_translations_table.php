@@ -32,9 +32,6 @@ class CreateCategoryTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('category_translations', function (Blueprint $table) {
-            $table->dropForeign('category_id');
-        });
         Schema::dropIfExists('category_translations');
     }
 }

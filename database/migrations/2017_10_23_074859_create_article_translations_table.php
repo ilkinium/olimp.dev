@@ -33,9 +33,6 @@ class CreateArticleTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('article_translations', function (Blueprint $table) {
-            $table->dropForeign('article_id');
-        });
         Schema::dropIfExists('article_translations');
     }
 }

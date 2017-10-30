@@ -17,11 +17,11 @@ class CreatePagesTable extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('slug')->unique();
+            $table->string('template');
             $table->string('image', 400)->nullable()->default(null);
             $table->string('thumbnail', 400)->nullable()->default(null);
             $table->string('icon', 400)->nullable()->default(null);
             $table->boolean('link_target')->nullable()->default(null);
-            NestedSet::columns($table);
             $table->timestamps();
         });
     }
@@ -33,9 +33,6 @@ class CreatePagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('pages', function (Blueprint $table) {
-            NestedSet::dropColumns($table);
-        });
         Schema::dropIfExists('pages');
     }
 }

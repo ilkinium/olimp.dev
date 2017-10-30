@@ -32,9 +32,6 @@ class CreateSlideTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('slide_translations', function (Blueprint $table) {
-            $table->dropForeign('slide_id');
-        });
         Schema::dropIfExists('slide_translations');
     }
 }

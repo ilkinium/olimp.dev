@@ -30,9 +30,6 @@ class CreateBannerTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('banner_translations', function (Blueprint $table) {
-            $table->dropForeign('banner_id');
-        });
         Schema::dropIfExists('banner_translations');
     }
 }
