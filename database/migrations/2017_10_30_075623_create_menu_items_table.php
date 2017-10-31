@@ -17,7 +17,8 @@ class CreateMenuItemsTable extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('menu_id');
-            $table->unsignedSmallInteger('menu_type');
+            $table->string('menu_element_type');
+            $table->integer('menu_element_id')->unsigned();
             NestedSet::columns($table);
             $table->timestamps();
             $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
