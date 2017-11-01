@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\SlideTranslation
+ *
+ * @mixin \Eloquent
+ */
 class SlideTranslation extends Model
 {
     //

@@ -4,6 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Page
+ *
+ * @property-read \App\MenuItem $menuElement
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PageTranslation[] $translation
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\PageTranslation[] $translations
+ * @mixin \Eloquent
+ */
 class Page extends Model
 {
     protected $table = 'pages';

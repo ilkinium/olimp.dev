@@ -4,6 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Category
+ *
+ * @property-read \App\MenuItem $menuElement
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\CategoryTranslation[] $translation
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\CategoryTranslation[] $translations
+ * @mixin \Eloquent
+ */
 class Category extends Model
 {
     protected $table = 'categories';

@@ -4,6 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\MenuItem
+ *
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $menuElement
+ * @mixin \Eloquent
+ */
 class MenuItem extends Model
 {
     protected $table = 'menu_items';
