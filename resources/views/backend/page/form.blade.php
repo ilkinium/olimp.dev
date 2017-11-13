@@ -1,5 +1,7 @@
 @extends('layouts.backend')
 
+@section('pageTitle', 'Create new page')
+
 @section('content')
     <div class="card">
         <div class="card-header">
