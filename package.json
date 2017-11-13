@@ -19,5 +19,7 @@
         "popper.js": "^1.12.6",
         "vue": "^2.1.10"
     },
-    "dependencies": {}
+    "dependencies": {
+        "admin-lte": "^2.4.2"
+    }
 }

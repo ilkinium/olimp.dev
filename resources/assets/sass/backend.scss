@@ -2,10 +2,14 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+@import "fontAwesome/font-awesome";
+
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+
+@import "../css/dashboard.css";
 //@import "custom";
 //@import "node_modules/bootstrap/scss/bootstrap";
