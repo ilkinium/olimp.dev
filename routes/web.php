@@ -18,4 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/admin/pages', 'Admin\PageController');
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->as('admin.')
+    ->group( function () {
+        Route::resource('pages', 'PagesController');
+        Route::resource('categories', 'CategoriesController');
+        Route::resource('articles', 'ArticlesController');
+        Route::resource('menus', 'MenusController');
+    });

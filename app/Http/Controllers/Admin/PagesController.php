@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,17 +15,20 @@ class PagesController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::with('translations')->get();
+        return view('backend.page.index', compact('pages'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param \App\Page $page
+     *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Page $page)
     {
-        //
+        return view('backend.page.form', compact('page'));
     }
 
     /**
