@@ -25,6 +25,6 @@ Route::prefix('admin')
     ->group( function () {
         Route::resource('pages', 'PagesController');
         Route::resource('categories', 'CategoriesController');
-        Route::resource('articles', 'ArticlesController');
+        Route::resource('posts', 'ArticlesController');
         Route::resource('menus', 'MenusController');
     });

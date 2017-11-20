@@ -15,11 +15,11 @@
         "cross-env": "^5.0.1",
         "jquery": "^3.1.1",
         "laravel-mix": "^1.0",
+        "less": "^2.7.3",
+        "less-loader": "^4.0.5",
         "lodash": "^4.17.4",
         "popper.js": "^1.12.6",
         "vue": "^2.1.10"
     },
-    "dependencies": {
-        "admin-lte": "^2.4.2"
-    }
+    "dependencies": {}
 }

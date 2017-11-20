@@ -12,27 +12,48 @@
             <i class="fa fa-dashboard"></i> <span class="d-none d-md-inline">Pages</span>
         </a>
         <div class="collapse" id="pages">
-            <a href="#" class="list-group-item" data-parent="#pages">List</a>
-            <a href="#" class="list-group-item" data-parent="#pages">Create</a>
+            <a href="{{ route('admin.pages.index') }}" class="list-group-item" data-parent="#pages">List</a>
+            <a href="{{ route('admin.pages.create') }}" class="list-group-item" data-parent="#pages">Create</a>
         </div>
 
         <a href="#categories" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
             <i class="fa fa-book"></i> <span class="d-none d-md-inline">Categories</span>
         </a>
         <div class="collapse" id="categories">
-            <a href="#" class="list-group-item" data-parent="#categories">Create</a>
+            <a href="{{ route('admin.categories.create') }}" class="list-group-item" data-parent="#categories">Create</a>
             @isset($categories)
                 @foreach($categories as $category)
                     <a href="#categories-sub" class="list-group-item" data-toggle="collapse" aria-expanded="false">
                         {{ $category->translation->first()->title }}
                     </a>
                     <div class="collapse" id="categories-sub">
-                        <a href="#" class="list-group-item" data-parent="#categories-sub">List of {{ $category->translation->first()->title }}</a>
+                        <a href="{{ route('admin.categories.index', [ 'id' => $category->id ]) }}" class="list-group-item" data-parent="#categories-sub">List of {{ $category->translation->first()->title }}</a>
                         <a href="#" class="list-group-item" data-parent="#categories-sub">Create new</a>
                     </div>
                 @endforeach
             @endisset
         </div>
+
+        <a href="#posts" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+            <i class="fa fa-book"></i> <span class="d-none d-md-inline">Posts</span>
+        </a>
+        <div class="collapse" id="posts">
+            <a href="{{ route('admin.posts.create') }}" class="list-group-item" data-parent="#posts">Create</a>
+            @isset($posts)
+                @foreach($posts as $post)
+                    <a href="#posts-sub" class="list-group-item" data-toggle="collapse" aria-expanded="false">
+                        {{ $post->translation->first()->title }}
+                    </a>
+                    <div class="collapse" id="posts-sub">
+                        <a href="{{ route('admin.posts.index', [ 'id' => $post->id ]) }}" class="list-group-item" data-parent="#posts-sub">
+                            List of {{ $post->translation->first()->title }}
+                        </a>
+                        <a href="#" class="list-group-item" data-parent="#posts-sub">Create new Post</a>
+                    </div>
+                @endforeach
+            @endisset
+        </div>
+
         <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
             <i class="fa fa-heart"></i> <span class="d-none d-md-inline">Item 4</span>
         </a>
