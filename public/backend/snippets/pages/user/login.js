@@ -87,7 +87,7 @@ var SnippetLogin = function() {
 
             btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
 
-            form.ajaxSubmit({
+            /*form.ajaxSubmit({
                 url: form.attr('action'),
                 success: function(response, status, xhr, $form) {
                 	// similate 2s delay
@@ -96,7 +96,7 @@ var SnippetLogin = function() {
 	                    showErrorMsg(form, 'danger', 'Incorrect username or password. Please try again.');
                     }, 2000);
                 }
-            });
+            });*/
         });
     }
 
@@ -134,7 +134,7 @@ var SnippetLogin = function() {
 
             btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
 
-            form.ajaxSubmit({
+            /*form.ajaxSubmit({
                 url: '',
                 success: function(response, status, xhr, $form) {
                 	// similate 2s delay
@@ -152,7 +152,7 @@ var SnippetLogin = function() {
 	                    showErrorMsg(signInForm, 'success', 'Thank you. To complete your registration please check your email.');
 	                }, 2000);
                 }
-            });
+            });*/
         });
     }
 
@@ -178,7 +178,7 @@ var SnippetLogin = function() {
 
             btn.addClass('m-loader m-loader--right m-loader--light').attr('disabled', true);
 
-            form.ajaxSubmit({
+            /*form.ajaxSubmit({
                 url: '',
                 success: function(response, status, xhr, $form) {
                 	// similate 2s delay
@@ -196,7 +196,7 @@ var SnippetLogin = function() {
 	                    showErrorMsg(signInForm, 'success', 'Cool! Password recovery instruction has been sent to your email.');
                 	}, 2000);
                 }
-            });
+            });*/
         });
     }
 
