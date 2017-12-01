@@ -23,6 +23,7 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->as('admin.')
     ->group( function () {
+        Route::get('/dashboard', 'PagesController@index')->name('dashboard');
         Route::resource('pages', 'PagesController');
         Route::resource('categories', 'CategoriesController');
         Route::resource('posts', 'ArticlesController');
