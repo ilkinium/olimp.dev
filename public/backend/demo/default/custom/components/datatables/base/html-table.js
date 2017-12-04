@@ -10,20 +10,17 @@ var DatatableHtmlTableDemo = function() {
       data: {
         saveState: {cookie: false},
       },
+        pageSize: 20,
       search: {
         input: $('#generalSearch'),
       },
       columns: [
-        {
-          field: 'Deposit Paid',
-          type: 'number',
-        },
-        {
-          field: 'Order Date',
-          type: 'date',
-          format: 'YYYY-MM-DD',
-        },
       ],
+        // column sorting
+        sortable: true,
+
+        pagination: true,
+
     });
   };
 

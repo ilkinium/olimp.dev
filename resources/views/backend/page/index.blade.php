@@ -3,66 +3,234 @@
 @section('headerScripts')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
-    @endsection
-
-@section('pageTitle', 'List of pages')
+@endsection
 
 @section('content')
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card border-primary mb-3">
-                <div class="card-header">
-                    <a href="{{ route('admin.pages.create') }}">
-                        <i class="fa fa-plus"></i> Create new page
-                    </a>
-                </div>
-                <div class="card-body">
-                    @if(isset($pages) && count($pages))
-                        <table id="example" class="table table-striped table-bordered table-condensed" cellspacing="0" width="100%">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </thead>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
-                            </tr>
-                            </tfoot>
-                            <tbody>
 
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    @else
-                        <div class="alert alert-primary" role="alert">
-                            There are no data in db!
+
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title m-subheader__title--separator">
+                    List of Pages
+                </h3>
+                <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                    <li class="m-nav__item m-nav__item--home">
+                        <a href="{{ route('admin.dashboard') }}" class="m-nav__link m-nav__link--icon">
+                            <i class="m-nav__link-icon la la-home"></i>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">
+                        -
+                    </li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">
+                                Pages
+                            </span>
+                        </a>
+                    </li>
+                    <li class="m-nav__separator">
+                        -
+                    </li>
+                    <li class="m-nav__item">
+                        <a href="" class="m-nav__link">
+                            <span class="m-nav__link-text">
+                                List
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="m-content">
+
+        <div class="m-portlet m-portlet--mobile">
+            <div class="m-portlet__body">
+                <!--begin: Search Form -->
+                <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                    <div class="row align-items-center">
+                        <div class="col-xl-8 order-2 order-xl-1">
+                            <div class="form-group m-form__group row align-items-center">
+                                <div class="col-md-4">
+                                    <div class="m-input-icon m-input-icon--left">
+                                        <input type="text" class="form-control m-input m-input--solid" placeholder="Search..." id="generalSearch">
+                                        <span class="m-input-icon__icon m-input-icon__icon--left">
+                                            <span>
+                                                <i class="la la-search"></i>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    @endif
+                        <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                            <a href="{{ route('admin.pages.create') }}" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                                <span>
+                                    <i class="la la-plus-circle"></i>
+                                    <span>
+                                        Create new Page
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="m-separator m-separator--dashed d-xl-none"></div>
+                        </div>
+                    </div>
                 </div>
+                <!--end: Search Form -->
+                <!--begin: Datatable -->
+                <table class="m-datatable" id="html_table" width="100%">
+                    <thead>
+                    <tr>
+                        <th title="Field #1">
+                            Page ID
+                        </th>
+                        <th title="Field #2">
+                            Title
+                        </th>
+                        <th title="Field #3">
+                            Template
+                        </th>
+                        <th title="Field #4">
+                            Translations
+                        </th>
+                        <th title="Field #5">
+                            Actions
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            16590-107
+                        </td>
+                        <td>
+                            Zandra Fisbburne
+                        </td>
+                        <td>
+                            (916) 6137523
+                        </td>
+                        <td>
+                            Pontiac
+                        </td>
+
+                        <td>
+                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+                                <i class="la la-edit"></i>
+                            </a>
+                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+                                <i class="la la-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            (888) 8512009
+                        </td>
+                        <td>
+                            Nissan
+                        </td>
+                        <td>
+                            Altima
+                        </td>
+                        <td>
+                            Yellow
+                        </td>
+                        <td>
+                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+                                <i class="la la-edit"></i>
+                            </a>
+                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
+                                <i class="la la-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            (640) 8089210
+                        </td>
+                        <td>
+                            Ford
+                        </td>
+                        <td>
+                            Expedition EL
+                        </td>
+                        <td>
+                            Fuscia
+                        </td>
+                        <td>
+                            $39020.81
+                        </td>
+                        <td>
+                            2017-12-07
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            58118-3750
+                        </td>
+                        <td>
+                            Gerri Haverson
+                        </td>
+                        <td>
+                            (993) 2745169
+                        </td>
+                        <td>
+                            Chevrolet
+                        </td>
+                        <td>
+                            Astro
+                        </td>
+                        <td>
+                            Purple
+                        </td>
+                        <td>
+                            $99551.01
+                        </td>
+                        <td>
+                            2017-02-13
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            61787-482
+                        </td>
+                        <td>
+                            Seumas Parlott
+                        </td>
+                        <td>
+                            (653) 6455420
+                        </td>
+                        <td>
+                            Ford
+                        </td>
+                        <td>
+                            Tempo
+                        </td>
+                        <td>
+                            Mauv
+                        </td>
+                        <td>
+                            $23592.86
+                        </td>
+                        <td>
+                            2016-01-14
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--end: Datatable -->
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('footerScripts')
+    <script src="{{ asset('backend/demo/default/custom/components/datatables/base/html-table.js') }}" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <script>

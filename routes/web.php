@@ -26,6 +26,6 @@ Route::prefix('admin')
         Route::get('/dashboard', 'PagesController@index')->name('dashboard');
         Route::resource('pages', 'PagesController');
         Route::resource('categories', 'CategoriesController');
-        Route::resource('posts', 'ArticlesController');
+        Route::resource('articles', 'ArticlesController');
         Route::resource('menus', 'MenusController');
     });

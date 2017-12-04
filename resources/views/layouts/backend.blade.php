@@ -47,7 +47,11 @@
         </button>
         @include('backend.partials.sidenav')
         <!-- END: Left Aside -->
-        @yield('content')
+        <div class="m-grid__item m-grid__item--fluid m-wrapper">
+            {{-- Main content --}}
+            @yield('content')
+            {{-- end Main content --}}
+        </div>
     </div>
     <!-- end:: Body -->
     <!-- begin::Footer -->
