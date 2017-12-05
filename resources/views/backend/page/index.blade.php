@@ -81,6 +81,7 @@
                     </div>
                 </div>
                 <!--end: Search Form -->
+            @if( isset($pages) && count($pages) )
                 <!--begin: Datatable -->
                 <table class="m-datatable" id="html_table" width="100%">
                     <thead>
@@ -126,103 +127,24 @@
                             </a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            (888) 8512009
-                        </td>
-                        <td>
-                            Nissan
-                        </td>
-                        <td>
-                            Altima
-                        </td>
-                        <td>
-                            Yellow
-                        </td>
-                        <td>
-                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
-                                <i class="la la-edit"></i>
-                            </a>
-                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
-                                <i class="la la-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            (640) 8089210
-                        </td>
-                        <td>
-                            Ford
-                        </td>
-                        <td>
-                            Expedition EL
-                        </td>
-                        <td>
-                            Fuscia
-                        </td>
-                        <td>
-                            $39020.81
-                        </td>
-                        <td>
-                            2017-12-07
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            58118-3750
-                        </td>
-                        <td>
-                            Gerri Haverson
-                        </td>
-                        <td>
-                            (993) 2745169
-                        </td>
-                        <td>
-                            Chevrolet
-                        </td>
-                        <td>
-                            Astro
-                        </td>
-                        <td>
-                            Purple
-                        </td>
-                        <td>
-                            $99551.01
-                        </td>
-                        <td>
-                            2017-02-13
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            61787-482
-                        </td>
-                        <td>
-                            Seumas Parlott
-                        </td>
-                        <td>
-                            (653) 6455420
-                        </td>
-                        <td>
-                            Ford
-                        </td>
-                        <td>
-                            Tempo
-                        </td>
-                        <td>
-                            Mauv
-                        </td>
-                        <td>
-                            $23592.86
-                        </td>
-                        <td>
-                            2016-01-14
-                        </td>
-                    </tr>
                     </tbody>
                 </table>
                 <!--end: Datatable -->
+            @else
+                    <div class="m-alert m-alert--icon alert alert-warning" role="alert">
+                        <div class="m-alert__icon">
+                            <i class="la la-warning"></i>
+                        </div>
+                        <div class="m-alert__text">
+                            <strong>
+                                Bazada Məlumat yoxdur!
+                            </strong>
+                        </div>
+                        <div class="m-alert__close">
+                            <button type="button" class="close" data-close="alert" aria-label="Hide"></button>
+                        </div>
+                    </div>
+            @endif
             </div>
         </div>
     </div>

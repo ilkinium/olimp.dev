@@ -15,7 +15,7 @@ var SnippetLogin = function() {
         alert.find('span').html(msg);
     }
 
-    //== Private Functions
+
 
     var displaySignUpForm = function() {
         login.removeClass('m-login--forget-password');
@@ -24,7 +24,7 @@ var SnippetLogin = function() {
         login.addClass('m-login--signup');
         login.find('.m-login__signup').animateClass('flipInX animated');
     }
-
+//== Private Functions
     var displaySignInForm = function() {
         login.removeClass('m-login--forget-password');
         login.removeClass('m-login--signup');

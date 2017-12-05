@@ -1,7 +1,15 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="m-login__signin">
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--singin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url({{ asset('backend/app/media/img//bg/bg-3.jpg') }});">
+        <div class="m-grid__item m-grid__item--fluid m-login__wrapper">
+            <div class="m-login__container">
+                <div class="m-login__logo">
+                    <a href="#">
+                        <img src="{{ asset('backend/app/media/img//logos/logo-1.png') }}">
+                    </a>
+                </div>
+                <div class="m-login__signin">
         <div class="m-login__head">
             <h3 class="m-login__title">
                 Reset Password
@@ -62,5 +70,8 @@
                 </button>
             </div>
         </form>
+    </div>
+            </div>
+        </div>
     </div>
 @endsection
