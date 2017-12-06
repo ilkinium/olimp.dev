@@ -27,7 +27,9 @@ class PageController extends Controller
      */
     public function create(Page $page)
     {
-        return view('backend.page.form', compact('page'));
+        $templates = Page::templates();
+        dd($templates);
+        return view('backend.page.form', compact('page', 'templates'));
     }
 
     /**

@@ -44,4 +44,13 @@ class Page extends Model
     {
         return $this->morphOne('App\MenuItem', 'menuElement');
     }
+
+    public static function templates(){
+        return collect([
+            ['value' => 'about', 'name' => 'About us template'],
+            ['value' => 'cantacts', 'name' => 'Contact us template'],
+            ['value' => 'simple', 'name' => 'Simple page template'],
+            ['value' => 'rightSideBar', 'name' => 'Page with right sidebar']
+        ]);
+    }
 }
