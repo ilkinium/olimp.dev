@@ -70,10 +70,9 @@
                         </div>
                     </form>
                 </div>
-
+                @include('auth.passwords.email')
             </div>
         </div>
     </div>
 
-    @include('auth.passwords.email')
 @endsection
