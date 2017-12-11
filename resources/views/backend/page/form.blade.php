@@ -128,7 +128,7 @@
                                         Template:
                                     </label>
                                     <div class="col-lg-6">
-                                        <select class="form-control m-select2" id="m_select2_1" name="template"
+                                        <select class="form-control m-select2{{ $errors->has('slug') ? ' is-invalid' : '' }}" id="m_select2_1" name="template"
                                                 data-placeholder="Select Template" required>
                                             <option></option>
                                             @foreach($templates as $template)
@@ -137,6 +137,11 @@
                                                 </option>
                                             @endforeach
                                         </select>
+                                        @if ($errors->has('template'))
+                                            <div class="invalid-feedback">
+                                                <strong>{{ $errors->first('template') }}</strong>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -182,7 +187,7 @@
                     @if(!$page->exists)
                         @foreach(LaravelLocalization::getSupportedLocales() as $localCode => $properties)
                             <div class="tab-pane" id="m_tabs_{{ $localCode }}" role="tabpanel">
-                                Section {{ $properties['native'] }}
+                                @include('backend.page.translationForm')
                             </div>
                         @endforeach
                     @endif
@@ -248,4 +253,3 @@
         }());
     </script>
 @endsection
-

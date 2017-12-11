@@ -108,6 +108,16 @@ class PagesController extends Controller
     }
 
     /**
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Page                $page
+     * @param \App\PageTranslation     $translation
+     */
+    public function updateTranslation(Request $request, Page $page, PageTranslation $translation)
+    {
+        
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param \App\Page $page

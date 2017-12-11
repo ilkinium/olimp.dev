@@ -24,7 +24,13 @@ Route::prefix('admin')
     ->as('admin.')
     ->group( function () {
         Route::get('/dashboard', 'PagesController@index')->name('dashboard');
+        /*
+         * Routes for CRUD operations - Pages
+         */
         Route::resource('pages', 'PagesController');
+        Route::post('pages/{page}/translations', 'Admin\PagesController@storeTranslation')->name('pages.translations.store');
+        Route::match( [ 'put', 'patch' ], 'pages/translations/{translation}', 'PageController@updateTranslation' )
+             ->name( 'page.translation.update' );
         Route::resource('categories', 'CategoriesController');
         Route::resource('articles', 'ArticlesController');
         Route::resource('menus', 'MenusController');
