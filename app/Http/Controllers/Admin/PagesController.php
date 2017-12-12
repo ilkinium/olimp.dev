@@ -75,6 +75,13 @@ class PagesController extends Controller
      */
     public function storeTranslation(Request $request, Page $page)
     {
+        $this->validate($request, [
+            'title'        => 'required|between:3,255',
+            'keywords' => 'string|nullable',
+            'body'    => 'nullable',
+            'lang'        => 'required',
+        ]);
+
         $translation = new PageTranslation;
         $translation->title = $request->title;
         $translation->lang = $request->lang;

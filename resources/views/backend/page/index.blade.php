@@ -104,22 +104,25 @@
                     </tr>
                     </thead>
                     <tbody>
+                    @foreach($pages as $page)
                     <tr>
                         <td>
-                            16590-107
+                            {{ $page->id }}
                         </td>
                         <td>
-                            Zandra Fisbburne
+                            {{ $page->translations->first()->title }}
                         </td>
                         <td>
-                            (916) 6137523
+                            {{ $page->template }}
                         </td>
                         <td>
-                            Pontiac
+                            @foreach($page->translations as $translation)
+                                {{ $translation->lang }} |
+                                @endforeach
                         </td>
 
                         <td>
-                            <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
+                            <a href="{{ route('admin.pages.edit', ['page' => $page]) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
                                 <i class="la la-edit"></i>
                             </a>
                             <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete">
@@ -127,6 +130,7 @@
                             </a>
                         </td>
                     </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <!--end: Datatable -->
