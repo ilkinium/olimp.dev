@@ -22,6 +22,7 @@ class PagesController extends Controller
     public function index()
     {
         $pages = Page::with('translations')->get();
+
         return view('backend.page.index', compact('pages'));
     }
 
@@ -35,6 +36,7 @@ class PagesController extends Controller
     public function create(Page $page)
     {
         $templates = Page::templates();
+
 //        dd($templates);
         return view('backend.page.form', compact('page', 'templates'));
     }
@@ -42,20 +44,27 @@ class PagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
-            'slug' => 'required|unique:pages,slug|alpha_dash|between:3,255',
+            'slug'        => 'required|unique:pages,slug|alpha_dash|between:3,255',
             'link_target' => 'boolean|nullable',
-            'template' => 'required|string|alpha_dash',
-            'icon' => 'nullable|string|between:3,250',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'template'    => 'required|string|alpha_dash',
+            'icon'        => 'nullable|string|between:3,250',
+            'image'       => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        return $request;
+        $page           = new Page;
+        $page->slug     = $request->slug;
+        $page->template = $request->template;
+        $page->icon     = $request->icon;
+        $page->save();
+
+        return redirect(route('admin.pages.edit', ['page' => $page]));
     }
 
     /**
@@ -66,8 +75,14 @@ class PagesController extends Controller
      */
     public function storeTranslation(Request $request, Page $page)
     {
-        $translation = new PageTranslation();
+        $translation = new PageTranslation;
+        $translation->title = $request->title;
+        $translation->lang = $request->lang;
+        $translation->body = $request->body;
+        $translation->keywords = $request->keywords;
+
         $page->translations()->save($translation);
+        return $page;
     }
 
     /**
@@ -91,7 +106,13 @@ class PagesController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        $templates = Page::templates();
+        $page->load('translations');
+        foreach ($page->translations as $translation) {
+            $translations[ $translation->lang ] = $translation;
+        }
+
+        return view('backend.page.form', compact('templates', 'page', 'translations'));
     }
 
     /**
@@ -109,12 +130,11 @@ class PagesController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
-     * @param \App\Page                $page
      * @param \App\PageTranslation     $translation
      */
-    public function updateTranslation(Request $request, Page $page, PageTranslation $translation)
+    public function updateTranslation(Request $request, PageTranslation $translation)
     {
-        
+
     }
 
     /**

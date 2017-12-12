@@ -28,8 +28,8 @@ Route::prefix('admin')
          * Routes for CRUD operations - Pages
          */
         Route::resource('pages', 'PagesController');
-        Route::post('pages/{page}/translations', 'Admin\PagesController@storeTranslation')->name('pages.translations.store');
-        Route::match( [ 'put', 'patch' ], 'pages/translations/{translation}', 'PageController@updateTranslation' )
+        Route::post('pages/{page}/translations', 'PagesController@storeTranslation')->name('pages.translations.store');
+        Route::match( [ 'put', 'patch' ], 'pages/translations/{translation}', 'PagesController@updateTranslation' )
              ->name( 'page.translation.update' );
         Route::resource('categories', 'CategoriesController');
         Route::resource('articles', 'ArticlesController');

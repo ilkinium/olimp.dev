@@ -62,7 +62,7 @@
                             Main Info
                         </a>
                     </li>
-                    @if(!$page->exists)
+                    @if( $page->exists )
                         @foreach(LaravelLocalization::getSupportedLocales() as $localCode => $properties)
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#m_tabs_{{ $localCode }}">
@@ -184,7 +184,7 @@
                         </form>
 
                     </div>
-                    @if(!$page->exists)
+                    @if( $page->exists )
                         @foreach(LaravelLocalization::getSupportedLocales() as $localCode => $properties)
                             <div class="tab-pane" id="m_tabs_{{ $localCode }}" role="tabpanel">
                                 @include('backend.page.translationForm')
@@ -235,6 +235,8 @@
 @section('footerScripts')
     <script src="{{ asset('backend/demo/default/custom/components/forms/widgets/select2.js') }}"
             type="text/javascript"></script>
+
+    <script src="{{ asset('backend/demo/default/custom/components/forms/widgets/summernote.js') }}" type="text/javascript"></script>
     <script>
         (function () {
             window.onload = function () {
