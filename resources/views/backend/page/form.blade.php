@@ -62,6 +62,7 @@
                             Main Info
                         </a>
                     </li>
+
                     @if( $page->exists )
                         @foreach(LaravelLocalization::getSupportedLocales() as $localCode => $properties)
                             <li class="nav-item">
@@ -73,6 +74,7 @@
                         @endforeach
                     @endif
                 </ul>
+
                 <div class="tab-content">
                     <div class="tab-pane active" id="m_tabs_1_1" role="tabpanel">
 
@@ -86,7 +88,7 @@
                                     <label class="col-lg-2 col-form-label" for="titleForSlug">
                                         Title:
                                     </label>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-10">
                                         <input type="text" name="titleForSlug" id="titleForSlug"
                                                class="form-control m-input {{ $errors->has('slug') ? ' is-invalid' : '' }}"
                                                placeholder="Enter Title"
@@ -106,7 +108,7 @@
                                     <label class="col-lg-2 col-form-label" for="slug">
                                         Slug:
                                     </label>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-10">
                                         <input type="text" name="slug" id="slug" class="form-control m-input {{ $errors->has('slug') ? ' is-invalid' : '' }}"
                                                placeholder="Enter Slug"
                                                value="{{ old('slug') }}"
@@ -127,7 +129,7 @@
                                     <label class="col-lg-2 col-form-label">
                                         Template:
                                     </label>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-10">
                                         <select class="form-control m-select2{{ $errors->has('slug') ? ' is-invalid' : '' }}" id="m_select2_1" name="template"
                                                 data-placeholder="Select Template" required>
                                             <option></option>
@@ -149,7 +151,7 @@
                                     <label class="col-lg-2 col-form-label">
                                         Icon:
                                     </label>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-8">
                                         <input type="text" name="icon" id="icon" class="form-control m-input"
                                                placeholder="Enter icon"
                                                value="{{ old('icon') }}"
@@ -158,7 +160,7 @@
                                             Slug will be automatically generated, but you can change it
                                         </span>
                                     </div>
-                                    <div class="col-lg-4">
+                                    <div class="col-lg-2">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_icons">
                                             Open Icon List
                                         </button>

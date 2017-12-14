@@ -30,7 +30,8 @@ Route::prefix('admin')
         Route::resource('pages', 'PagesController');
         Route::post('pages/{page}/translations', 'PagesController@storeTranslation')->name('pages.translations.store');
         Route::match( [ 'put', 'patch' ], 'pages/translations/{translation}', 'PagesController@updateTranslation' )
-             ->name( 'page.translation.update' );
+             ->name( 'pages.translation.update' );
+
         Route::resource('categories', 'CategoriesController');
         Route::resource('articles', 'ArticlesController');
         Route::resource('menus', 'MenusController');

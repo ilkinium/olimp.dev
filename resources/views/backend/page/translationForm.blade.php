@@ -1,8 +1,11 @@
 <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"
-      method="{{ (isset( $translations[$localCode] )) ? 'PUT' : 'POST' }}"
-      action="{{ (isset( $translations[$localCode] )) ? route('admin.pages.update', ['translation' => $translations[$localCode] ]) : route('admin.pages.translations.store', ['page' => $page]) }}"
+      method="POST"
+      action="{{ (isset( $translations[$localCode] )) ? route('admin.pages.translation.update', ['translation' => $translations[$localCode] ]) : route('admin.pages.translations.store', ['page' => $page]) }}"
 >
     {{ csrf_field() }}
+    @if(isset($translations[$localCode]))
+    {{ method_field('put') }}
+    @endif
     <input type="hidden" value="{{ $localCode }}" name="lang">
 
     <div class="m-portlet__body">
@@ -10,11 +13,11 @@
             <label class="col-lg-2 col-form-label" for="title">
                 Title:
             </label>
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <input type="text" name="title" id="title"
                        class="form-control m-input {{ $errors->has('title') ? ' is-invalid' : '' }}"
                        placeholder="Enter Title"
-                       value="{{ old('title') }}"
+                       value="{{ isset( $translations[$localCode] ) ? $translations[$localCode]->title : old('title') }}"
                 >
                 @if ($errors->has('title'))
                     <div class="invalid-feedback">
@@ -28,8 +31,10 @@
             <label class="col-lg-2 col-form-label" for="body">
                 Body:
             </label>
-            <div class="col-lg-6">
-                <textarea name="body" id="body" cols="30" rows="10" class="summernote"></textarea>
+            <div class="col-lg-10">
+                <textarea name="body" id="body" cols="30" rows="10" class="summernote">
+                    {{ isset( $translations[$localCode] ) ? $translations[$localCode]->body : old('body') }}
+                </textarea>
                 @if ($errors->has('body'))
                     <div class="form-control-feedback">
                         <strong>{{ $errors->first('body') }}</strong>
@@ -40,13 +45,13 @@
 
         <div class="form-group m-form__group row">
             <label class="col-lg-2 col-form-label" for="keywords">
-                Description:
+                Keywords:
             </label>
-            <div class="col-lg-6">
+            <div class="col-lg-10">
                 <input type="text" name="keywords" id="keywords"
                        class="form-control m-input {{ $errors->has('keywords') ? ' is-invalid' : '' }}"
-                       placeholder="Enter Description"
-                       value="{{ old('keywords') }}"
+                       placeholder="Enter Keywords"
+                       value="{{ isset( $translations[$localCode] ) ? $translations[$localCode]->keywords : old('keywords') }}"
                        required
                 >
                 @if ($errors->has('keywords'))
@@ -59,26 +64,6 @@
                 </span>
             </div>
         </div>
-
-        {{--<div class="form-group m-form__group row">
-            <label class="col-lg-2 col-form-label">
-                Icon:
-            </label>
-            <div class="col-lg-6">
-                <input type="text" name="icon" id="icon" class="form-control m-input"
-                       placeholder="Enter icon"
-                       value="{{ old('icon') }}"
-                >
-                <span class="m-form__help">
-                    Slug will be automatically generated, but you can change it
-                </span>
-            </div>
-            <div class="col-lg-4">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#m_modal_icons">
-                    Open Icon List
-                </button>
-            </div>
-        </div>--}}
 
     </div>
     <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">

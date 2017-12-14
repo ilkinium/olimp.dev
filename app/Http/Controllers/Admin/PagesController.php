@@ -37,7 +37,6 @@ class PagesController extends Controller
     {
         $templates = Page::templates();
 
-//        dd($templates);
         return view('backend.page.form', compact('page', 'templates'));
     }
 
@@ -72,24 +71,27 @@ class PagesController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Page                $page
+     *
+     * @return \App\Page
      */
     public function storeTranslation(Request $request, Page $page)
     {
         $this->validate($request, [
-            'title'        => 'required|between:3,255',
+            'title'    => 'required|between:3,255',
             'keywords' => 'string|nullable',
-            'body'    => 'nullable',
-            'lang'        => 'required',
+            'body'     => 'nullable',
+            'lang'     => 'required',
         ]);
 
-        $translation = new PageTranslation;
-        $translation->title = $request->title;
-        $translation->lang = $request->lang;
-        $translation->body = $request->body;
+        $translation           = new PageTranslation;
+        $translation->title    = $request->title;
+        $translation->lang     = $request->lang;
+        $translation->body     = $request->body;
         $translation->keywords = $request->keywords;
 
         $page->translations()->save($translation);
-        return $page;
+
+        return redirect(route('admin.pages.edit', ['page' => $page]));
     }
 
     /**
@@ -138,10 +140,25 @@ class PagesController extends Controller
     /**
      * @param \Illuminate\Http\Request $request
      * @param \App\PageTranslation     $translation
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function updateTranslation(Request $request, PageTranslation $translation)
     {
+        $this->validate($request, [
+            'title'    => 'required|between:3,255',
+            'keywords' => 'string|nullable',
+            'body'     => 'nullable',
+            'lang'     => 'required',
+        ]);
+        $translation->title    = $request->title;
+        $translation->lang     = $request->lang;
+        $translation->body     = $request->body;
+        $translation->keywords = $request->keywords;
 
+        $translation->save();
+
+        return redirect(route('admin.pages.index'));
     }
 
     /**

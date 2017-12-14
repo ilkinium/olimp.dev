@@ -120,7 +120,6 @@
                                 {{ $translation->lang }} |
                                 @endforeach
                         </td>
-
                         <td>
                             <a href="{{ route('admin.pages.edit', ['page' => $page]) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit details">
                                 <i class="la la-edit"></i>
